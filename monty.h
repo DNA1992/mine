@@ -39,4 +39,10 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+void inter_monty(char **av);
+void token_line(char *buffer, char **tokens, ssize_t r_line);
+void opcode_choose(stack_t st_stack, char **tokens, size_t linu);
+void freetokens(char **tokens);
+void freest_stack(stack_t *st_stack);
 #endif
