@@ -9,6 +9,8 @@
 
 int main(int ac, char **av)
 {
+	(void) num;
+
 	if (ac == 2)
 		inter_monty(av);
 	else

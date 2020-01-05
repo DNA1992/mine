@@ -40,15 +40,18 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void pushS(stack_t **st_stack, unsigned int linu);
+void printS(stack_t **st_stack, unsigned int linu);
+
 void inter_monty(char **av);
-void token_line(char *buffer, char **tokens, ssize_t r_line);
-void opcode_choose(stack_t st_stack, char **tokens, size_t linu);
-void freetokens(char **tokens);
+void token_line(char **buffer, char ***tokens, ssize_t r_line);
+void opcode_choose(stack_t **st_stack, char ***tokens, unsigned int linu);
+void freetokens(char ***tokens);
 void freest_stack(stack_t *st_stack);
-void deletenl(char *buffer);
-size_t numberwords(char *buffer, ssize_t r_line);
-void tokenizer(char *buffer, char **tokens, size_t number);
+void deletenl(char **buffer);
+size_t numberwords(char **buffer, ssize_t r_line);
+void tokenizer(char **buffer, char ***tokens, size_t number);
 void checknumber(char *n, unsigned int line_number);
-void (*choose_opcode(char *))(stack_t **stack, unsigned int line_number);
+void (*choose_opcode(char *code))(stack_t **st_stack, unsigned int linu);
 
 #endif

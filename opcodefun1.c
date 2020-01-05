@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int num;
+
 /**
   * pushS - push a number in a stack
   * @st_stack: The stack
@@ -19,7 +21,7 @@ void pushS(stack_t **st_stack, unsigned int linu)
 	new->next = NULL;
 	if (*st_stack != NULL)
 	{
-		new->next = *stack;
+		new->next = *st_stack;
 		(*st_stack)->prev = new;
 	}
 	*st_stack = new;

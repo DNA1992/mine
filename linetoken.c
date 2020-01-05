@@ -8,20 +8,20 @@
   * Return: nothing
   */
 
-void token_line(char *buffer, char **tokens, ssize_t r_line)
+void token_line(char **buffer, char ***tokens, ssize_t r_line)
 {
 	size_t i, number;
 
 	if (r_line > 0)
 	{
-		for (i = 0; buffer[i] == ' ' || buffer[i] == '\t'; i++)
+		for (i = 0; (*buffer)[i] == ' ' || (*buffer)[i] == '\t'; i++)
 		{
-			if (buffer[i + 1] == '\n')
+			if ((*buffer)[i + 1] == '\n')
 				return;
 		}
 	}
 
-	if (*buffer != '\n')
+	if (**buffer != '\n')
 	{
 		deletenl(buffer);
 		number = numberwords(buffer, r_line);
@@ -33,13 +33,13 @@ void token_line(char *buffer, char **tokens, ssize_t r_line)
   * @buffer: buffer where is stored the data line
   * Return: nothing
   */
-void deletenl(char *buffer)
+void deletenl(char **buffer)
 {
 	int i;
 
-	for (i = 0; buffer[i] != '\0'; i++)
+	for (i = 0; (*buffer)[i] != '\0'; i++)
 		;
-	buffer[i - 1] = '\0';
+	(*buffer)[i - 1] = '\0';
 }
 /**
   * numberwords - Count the number of object were tokened
@@ -47,13 +47,13 @@ void deletenl(char *buffer)
   * @r_line: number of characters read it
   * Return: nothing
   */
-size_t numberwords(char *buffer, ssize_t r_line)
+size_t numberwords(char **buffer, ssize_t r_line)
 {
 	char *temp = NULL, *copybuffer = NULL, *delim = " \n\t";
 	size_t i;
 
 	copybuffer = malloc(sizeof(char) * r_line);
-	strcpy(copybuffer, buffer);
+	strcpy(copybuffer, *buffer);
 	temp = strtok(copybuffer, delim);
 	for (i = 0; temp != NULL; i++)
 		temp = strtok(NULL, delim);
@@ -70,21 +70,21 @@ size_t numberwords(char *buffer, ssize_t r_line)
   * @number: number of tokens
   * Return: nothing
   */
-void tokenizer(char *buffer, char **tokens, size_t number)
+void tokenizer(char **buffer, char ***tokens, size_t number)
 {
 	char *token = NULL, *delim = " \n\t";
 	size_t i;
 
-	token = strtok(buffer, delim);
+	token = strtok(*buffer, delim);
 	if (strcmp(token, "push") == 0)
 		number = 1;
 	else
 		number = 0;
-	tokens = malloc(sizeof(char *) * number);
+	*tokens = malloc(sizeof(char *) * number);
 	for (i = 0; token != NULL && i <= number; i++)
 	{
-		tokens[i] = token;
+		(*tokens)[i] = token;
 		token = strtok(NULL, delim);
 	}
-	tokens[i] = NULL;
+	(*tokens)[i] = NULL;
 }
