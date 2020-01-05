@@ -9,7 +9,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
-
+extern int num;
 /**
   * struct stack_s - doubly linked list representation of a stack (or queue)
   * @n: integer
@@ -45,4 +45,10 @@ void token_line(char *buffer, char **tokens, ssize_t r_line);
 void opcode_choose(stack_t st_stack, char **tokens, size_t linu);
 void freetokens(char **tokens);
 void freest_stack(stack_t *st_stack);
+void deletenl(char *buffer);
+size_t numberwords(char *buffer, ssize_t r_line);
+void tokenizer(char *buffer, char **tokens, size_t number);
+void checknumber(char *n, unsigned int line_number);
+void (*choose_opcode(char *))(stack_t **stack, unsigned int line_number);
+
 #endif

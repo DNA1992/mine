@@ -47,10 +47,10 @@ void deletenl(char *buffer)
   * @r_line: number of characters read it
   * Return: nothing
   */
-void numberwords(char *buffer, ssize_t r_line)
+size_t numberwords(char *buffer, ssize_t r_line)
 {
 	char *temp = NULL, *copybuffer = NULL, *delim = " \n\t";
-	int i;
+	size_t i;
 
 	copybuffer = malloc(sizeof(char) * r_line);
 	strcpy(copybuffer, buffer);
