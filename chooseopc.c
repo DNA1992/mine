@@ -62,7 +62,7 @@ void checknumber(char *n, unsigned int linu)
 
 /**
   * choose_opcode - Choose the right opcode to exe
-  * @code; the string number
+  * @code: the string number
   * Return: nothing
   */
 void (*choose_opcode(char *code))(stack_t **stack, unsigned int line_number)
