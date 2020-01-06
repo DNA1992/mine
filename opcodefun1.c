@@ -53,12 +53,11 @@ void printS(stack_t **st_stack, unsigned int linu)
   */
 void pintS(stack_t **st_stack, unsigned int linu)
 {
-	(void) linu;
 	if (*st_stack != NULL)
 		printf("%d\n", (*st_stack)->n);
 	else
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", linu);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", linu);
 		exit(EXIT_FAILURE);
 	}
 }
