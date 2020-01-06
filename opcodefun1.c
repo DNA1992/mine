@@ -86,3 +86,33 @@ void popS(stack_t **st_stack, unsigned int linu)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+  * swapS - delete the top of the stack
+  * @st_stack: The stack
+  * @linu: line of code
+  * Return: nothing
+  */
+void swapS(stack_t **st_stack, unsigned int linu)
+{
+	stack_t *save, *c = *st_stack;
+	int i;
+
+	for (i = 0; *st_stack != NULL && c->next != NULL; i++, c = c->next)
+		continue;
+
+	if (*st_stack != NULL && i >= 2)
+	{
+		save = (*st_stack)->next;
+		(*st_stack)->next = save->next;
+		(*st_stack)->prev = save;
+		save->prev = NULL;
+		save->next = *st_stack;
+		*st_stack = save;
+	}
+	else
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", linu);
+		exit(EXIT_FAILURE);
+	}
+}
