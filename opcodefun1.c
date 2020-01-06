@@ -104,11 +104,10 @@ void swapS(stack_t **st_stack, unsigned int linu)
 	if (*st_stack != NULL && i >= 2)
 	{
 		save = (*st_stack)->next;
-		(*st_stack)->next = save->next;
-		(*st_stack)->prev = save;
-		save->prev = NULL;
-		save->next = *st_stack;
-		*st_stack = save;
+		i = (*st_stack)->n;
+
+		(*st_stack)->n = save->n;
+		save->n = i;
 	}
 	else
 	{
