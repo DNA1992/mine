@@ -27,3 +27,16 @@ void addS(stack_t **st_stack, unsigned int linu)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+  * nopS - push a number in a stack
+  * @st_stack: The stack
+  * @linu: line of code
+  * Return: nothing
+  */
+
+void nopS(stack_t **st_stack, unsigned int linu)
+{
+	(void) st_stack;
+	(void) linu;
+}
