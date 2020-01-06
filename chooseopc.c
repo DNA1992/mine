@@ -77,6 +77,9 @@ void (*choose_opcode(char *code))(stack_t **stack, unsigned int line_number)
 		{"add", addS},
 		{"nop", nopS},
 		{"sub", subS},
+		{"div", divS},
+		{"mul", mulS},
+		{"mod", modS},
 		{NULL, NULL}};
 	for (i = 0; opcodes[i].opcode != NULL; i++)
 		if (strcmp(code, opcodes[i].opcode) == 0)
