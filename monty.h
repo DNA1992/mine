@@ -47,6 +47,7 @@ void popS(stack_t **st_stack, unsigned int linu);
 void swapS(stack_t **st_stack, unsigned int linu);
 void addS(stack_t **st_stack, unsigned int linu);
 void nopS(stack_t **st_stack, unsigned int linu);
+void subS(stack_t **st_stack, unsigned int linu);
 
 void inter_monty(char **av);
 void token_line(char **buffer, char ***tokens, ssize_t r_line);
