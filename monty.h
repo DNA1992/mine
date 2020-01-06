@@ -43,6 +43,7 @@ typedef struct instruction_s
 void pushS(stack_t **st_stack, unsigned int linu);
 void printS(stack_t **st_stack, unsigned int linu);
 void pintS(stack_t **st_stack, unsigned int linu);
+void popS(stack_t **st_stack, unsigned int linu);
 
 void inter_monty(char **av);
 void token_line(char **buffer, char ***tokens, ssize_t r_line);
