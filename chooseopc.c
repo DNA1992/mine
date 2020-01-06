@@ -81,6 +81,10 @@ void (*choose_opcode(char *code))(stack_t **stack, unsigned int line_number)
 		{"mul", mulS},
 		{"mod", modS},
 		{NULL, NULL}};
+
+	if (code[0] == '#')
+		return (comS);
+
 	for (i = 0; opcodes[i].opcode != NULL; i++)
 		if (strcmp(code, opcodes[i].opcode) == 0)
 			return (opcodes[i].f);
