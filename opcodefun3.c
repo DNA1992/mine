@@ -46,3 +46,28 @@ void comS(stack_t **st_stack, unsigned int linu)
 	(void) st_stack;
 	(void) linu;
 }
+
+/**
+  * pcharS - print the stack
+  * @st_stack: The stack
+  * @linu: line of code
+  * Return: nothing
+  */
+void pcharS(stack_t **st_stack, unsigned int linu)
+{
+	if (*st_stack != NULL)
+	{
+		if ((*st_stack)->n >= 0 && (*st_stack)->n <= 127)
+			printf("%c\n", (*st_stack)->n);
+		else
+		{
+			fprintf(stderr, "L%u: can't pchar, value out of range\n", linu);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", linu);
+		exit(EXIT_FAILURE);
+	}
+}

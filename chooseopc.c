@@ -80,6 +80,7 @@ void (*choose_opcode(char *code))(stack_t **stack, unsigned int line_number)
 		{"div", divS},
 		{"mul", mulS},
 		{"mod", modS},
+		{"pchar", pcharS},
 		{NULL, NULL}};
 
 	if (code[0] == '#')
