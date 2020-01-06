@@ -60,8 +60,7 @@ void opcode_choose(stack_t **st_stack, char ***tokens, unsigned int linu);
 void freetokens(char ***tokens);
 void freest_stack(stack_t *st_stack);
 void deletenl(char **buffer);
-size_t numberwords(char **buffer, ssize_t r_line);
-void tokenizer(char **buffer, char ***tokens, size_t number);
+void tokenizer(char **buffer, char ***tokens);
 void checknumber(char *n, unsigned int line_number);
 void (*choose_opcode(char *code))(stack_t **st_stack, unsigned int linu);
 

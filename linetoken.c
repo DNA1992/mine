@@ -10,7 +10,7 @@
 
 void token_line(char **buffer, char ***tokens, ssize_t r_line)
 {
-	size_t i, number;
+	size_t i;
 
 	if (r_line > 0)
 	{
@@ -24,8 +24,7 @@ void token_line(char **buffer, char ***tokens, ssize_t r_line)
 	if (**buffer != '\n')
 	{
 		deletenl(buffer);
-		number = numberwords(buffer, r_line);
-		tokenizer(buffer, tokens, number);
+		tokenizer(buffer, tokens);
 	}
 }
 /**
@@ -42,38 +41,15 @@ void deletenl(char **buffer)
 	(*buffer)[i - 1] = '\0';
 }
 /**
-  * numberwords - Count the number of object were tokened
-  * @buffer: buffer where is store the data line
-  * @r_line: number of characters read it
-  * Return: nothing
-  */
-size_t numberwords(char **buffer, ssize_t r_line)
-{
-	char *temp = NULL, *copybuffer = NULL, *delim = " \n\t";
-	size_t i;
-
-	copybuffer = malloc(sizeof(char) * r_line);
-	strcpy(copybuffer, *buffer);
-	temp = strtok(copybuffer, delim);
-	for (i = 0; temp != NULL; i++)
-		temp = strtok(NULL, delim);
-	i++;
-	free(copybuffer);
-	if (i > 3)
-		i = 3;
-	return (i);
-}
-/**
   * tokenizer - Phrase the buffer in tokens
   * @buffer: buffer where is stored the data line
   * @tokens: where the opcode is stored
-  * @number: number of tokens
   * Return: nothing
   */
-void tokenizer(char **buffer, char ***tokens, size_t number)
+void tokenizer(char **buffer, char ***tokens)
 {
 	char *token = NULL, *delim = " \n\t";
-	size_t i;
+	size_t i, number;
 
 	token = strtok(*buffer, delim);
 	if (strcmp(token, "push") == 0)
