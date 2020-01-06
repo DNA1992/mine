@@ -77,11 +77,11 @@ void tokenizer(char **buffer, char ***tokens, size_t number)
 
 	token = strtok(*buffer, delim);
 	if (strcmp(token, "push") == 0)
-		number = 1;
+		number = 3;
 	else
-		number = 0;
+		number = 2;
 	*tokens = malloc(sizeof(char *) * number);
-	for (i = 0; token != NULL && i <= number; i++)
+	for (i = 0; token != NULL && i <= number - 2; i++)
 	{
 		(*tokens)[i] = token;
 		token = strtok(NULL, delim);
