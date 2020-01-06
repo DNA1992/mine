@@ -95,13 +95,10 @@ void popS(stack_t **st_stack, unsigned int linu)
   */
 void swapS(stack_t **st_stack, unsigned int linu)
 {
-	stack_t *save, *c = *st_stack;
+	stack_t *save;
 	int i;
 
-	for (i = 0; *st_stack != NULL && c->next != NULL; i++, c = c->next)
-		continue;
-
-	if (*st_stack != NULL && i >= 2)
+	if (*st_stack != NULL && (*st_stack)->next != NULL)
 	{
 		save = (*st_stack)->next;
 		i = (*st_stack)->n;
